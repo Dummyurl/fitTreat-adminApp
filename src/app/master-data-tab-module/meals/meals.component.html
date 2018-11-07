@@ -1,3 +1,82 @@
-<p>
-  meals works!
-</p>
+<div class="mat-elevation-z8 master-Tab-Comp">
+  <form style="width:95%;padding-top:1%;margin-left: 1%;margin-right: 1%">
+    <div class="row">
+      <div class="col">
+        <div class="form-group row">
+          <div class="col">
+            <label for="dietName">Diet Name</label>
+            <input id="dietName" type="text" class="form-control" placeholder="Veggie Grilled Sandwich" [(ngModel)]="diet.name"
+              name="name">
+          </div>
+          <div class="col">
+            <label for="calorieCount">Calories Count</label>
+            <input id="calorieCount" type="number" class="form-control" placeholder="184" [(ngModel)]="diet.calories"
+              name="calories">
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col">
+            <label for="dietTypeSelect">Diet Type</label>
+            <select id="dietTypeSelect" class="form-control" [(ngModel)]="diet.foodPreference" name="dietType">
+              <option *ngFor="let type of dietPref">{{type}}</option>
+            </select>
+          </div>
+          <div class="col">
+            <label for="photoUrl">Meal Photo Name</label>
+            <input id="photoUrl" type="text" class="form-control" placeholder="e.g. vegSandwich.jpg">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="nutritionInfoTxt">Nutrition Info</label>
+          <div id="nutritionInfoTxt" class="form-control htmlTextRendererDiv">Provide Nutrition Info text from HTML
+            Editor</div>
+        </div>
+        <div class="form-group">
+          <label for="ingredientTxt">Ingredients</label>
+          <div id="ingredientsTxt" class="form-control htmlTextRendererDiv">Provide Ingredients Info text from HTML
+            Editor</div>
+        </div>
+        <div class="form-group">
+          <label for="directionsTxt">Directions</label>
+          <div id="directionsTxt" class="form-control htmlTextRendererDiv">Provide Directions Info from HTML Editor</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group row">
+               <div class="col">
+            <label for="course">Course / Meal Type</label>
+            <mat-form-field>
+              <mat-select required [formControl]="mealCourseType" multiple>
+                <mat-option *ngFor="let type of mealCourse" [value]="type">{{type}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <label for="dietCat">Diet Category</label>
+            <input id="dietCat" type="text" class="form-control" placeholder="High Protein, Low Sugar" [(ngModel)]="diet.dietType"
+              name="dietCategory">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="medCondAvoid">Avoidable Medical Conditions</label>
+          <input id="medCondAvoid" type="text" class="form-control" placeholder="Diabetes,Thyroid" [(ngModel)]="diet.avoidableMedCond"
+            name="medCondAvoid">
+        </div>
+        <div class="form-group">
+          <div style="display:flex;flex-direction: row">
+            <label for="htmlInp">HTML Editor</label>
+            <select class="form-control" style="width: auto;margin-left:auto;float:left" [(value)]="selected"
+              #editorSelect>
+              <option value="nutritionInfo">Nutrition Info</option>
+              <option value="ingredients">Ingredients</option>
+              <option value="directions">Directions</option>
+            </select>
+            <button class="btn btn-primary" (click)="htmlTextSubmit(editorSelect.value)" style="width:auto;margin-left:2px">Save</button>
+          </div>
+          <textarea id="htmlInp" name="htmlInput" class="widgEditor form-control" #htmlInp></textarea>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

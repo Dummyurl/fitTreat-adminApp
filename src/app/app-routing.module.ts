@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import { RouteTestComponent } from './route-test/route-test.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { HomeComponent } from './home/home.component';
 

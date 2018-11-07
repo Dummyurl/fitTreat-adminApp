@@ -9,7 +9,7 @@ import {catchError} from 'rxjs/operators';
 })
 export class DataPostService {
 
-  baseUrl:String = AppConstants.baseUrl;
+  baseUrl:string = AppConstants.baseUrl;
   constructor(private http:HttpClient) { }
 
   private handleError(error:HttpErrorResponse){
