@@ -14,6 +14,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SymptomsComponent implements OnInit {
 
+
+  searchText:string='';
   //busy indicator set
   busy=false;
   //Flag to set new medicine to symptoms form

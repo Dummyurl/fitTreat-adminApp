@@ -166,7 +166,7 @@ export class MealsComponent implements OnInit {
     this.files = e.target.files[0];
     let fileReader = new FileReader();
     fileReader.readAsArrayBuffer(this.files);
-    fileReader.onload = (evt) => {
+    fileReader.onload = (evt:any) => {
       let data = new Uint8Array(evt.target.result);
       let workbook = XLSX.read(data, {
         type: "array",

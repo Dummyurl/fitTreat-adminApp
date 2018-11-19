@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { MasterDataModuleRoutingModule } from './master-data-module-routing.module';
 import { MasterDataComponent } from './master-data-home/master-data-home.component';
-import { MedicineCompComponent } from './medicine-comp/medicine-comp.component';
 import { MealsComponent, MealsListDialog, ConfirmationDialog } from './meals/meals.component';
 import {SymptomsComponent} from './symptoms/symptoms.component'
 import {MatTableModule} from '@angular/material/table';
@@ -38,7 +37,6 @@ import { FilterPipe } from '../filter.pipe';
 ],
   declarations: [
     MasterDataComponent,
-    MedicineCompComponent,
     MealsComponent,
     SymptomsComponent,
     FilterPipe,
