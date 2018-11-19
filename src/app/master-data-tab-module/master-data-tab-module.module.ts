@@ -4,11 +4,10 @@ import { CommonModule } from '@angular/common';
 import { MasterDataModuleRoutingModule } from './master-data-module-routing.module';
 import { MasterDataComponent } from './master-data-home/master-data-home.component';
 import { MedicineCompComponent } from './medicine-comp/medicine-comp.component';
-import { MealsComponent } from './meals/meals.component';
+import { MealsComponent, MealsListDialog, ConfirmationDialog } from './meals/meals.component';
 import {SymptomsComponent} from './symptoms/symptoms.component'
-import { MasterDataService } from './master-data.service';
 import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule,MatSortModule,MatInputModule,MatToolbarModule, MatSelectModule} from '@angular/material';
+import {MatPaginatorModule,MatSortModule,MatInputModule,MatToolbarModule, MatSelectModule,MatDialogModule, MatProgressSpinnerModule, MatChipsModule, MatIconModule, MatCheckboxModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
@@ -18,6 +17,8 @@ import { FilterPipe } from '../filter.pipe';
 
 @NgModule({
   imports: [
+    MatProgressSpinnerModule,
+    MatDialogModule,
     ReactiveFormsModule,
     CommonModule,
     MasterDataModuleRoutingModule,
@@ -30,14 +31,24 @@ import { FilterPipe } from '../filter.pipe';
     MatSidenavModule,
     MatListModule,
     FormsModule,
-  MatSelectModule
+  MatSelectModule,
+  MatChipsModule,
+  MatIconModule,
+  MatCheckboxModule
 ],
   declarations: [
     MasterDataComponent,
     MedicineCompComponent,
     MealsComponent,
     SymptomsComponent,
-    FilterPipe
-    ]
+    FilterPipe,
+    MealsListDialog,
+    ConfirmationDialog,
+      ],
+    entryComponents: [
+      MealsListDialog,
+      ConfirmationDialog
+    ],
+    exports: []
 })
 export class MasterDataTabModule { }

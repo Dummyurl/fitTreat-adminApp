@@ -8,11 +8,7 @@ import { SymptomsComponent } from './symptoms/symptoms.component';
 const routes:Routes = [
   {path:'masterData',component:MasterDataComponent,
     children:[
-      {path:'',redirectTo:'medicines',pathMatch:'full'},
-      {
-        path:'medicines',
-        component:MedicineCompComponent
-      },
+      {path:'',redirectTo:'symptoms',pathMatch:'full'},
       {
         path:'meals',
         component:MealsComponent

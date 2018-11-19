@@ -1,12 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import {MatTableModule,MatExpansionModule,MatToolbarModule, MatTabsModule,MatSnackBarModule,MatListModule, MatButtonModule, MatIconModule,MatGridListModule} from '@angular/material';
+import {MatSnackBarModule, MatIconModule} from '@angular/material';
 import { AppComponent } from './app.component';
-import { TabsComponent } from './tabs/tabs.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { LayoutModule } from '@angular/cdk/layout';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HomeComponent } from './home/home.component';
@@ -15,12 +13,14 @@ import { NgxPopper } from 'angular-popper';
 import {BsDropdownModule} from 'ngx-bootstrap';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AppDataManagementComponent } from './app-data-management/app-data-management.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TabsComponent,
     HomeComponent,
+    AppDataManagementComponent,
   ],
   imports: [
     TooltipModule.forRoot(),
@@ -34,7 +34,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     LayoutModule,
     MasterDataTabModule,
-    NgxPopper
+    NgxPopper,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -19,3 +19,11 @@
   .htmlTextRendererDiv{
       height: auto !important;
   }
+
+  .invalidInputCls{
+      color: #721c24;
+      border-color: red
+  }
+
+ 
+  
