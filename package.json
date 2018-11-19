@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --prod"
+    "postinstall": "ng build --aot --prod"
   },
   "engines": {
     "node": "10.12.0",
@@ -41,7 +41,8 @@
     "rxjs-compat": "^6.3.3",
     "typescript": "~2.9.2",
     "xlsx": "^0.14.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "@angular-devkit/build-angular": "~0.8.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",
