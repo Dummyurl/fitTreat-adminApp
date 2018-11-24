@@ -1,6 +1,4 @@
 import { Component, OnInit, Inject,ViewChild} from '@angular/core';
-import * as XLSX from 'xlsx';
-import * as $ from 'jquery';
 import {MatSnackBar} from '@angular/material';
 import { MasterDataService } from '../master-data.service';
 import { FormControl } from '@angular/forms';
@@ -37,6 +35,7 @@ export class MealsComponent implements OnInit {
   mealCourse=["Breakfast","Lunch","Dinner","Snack","Soup","Juice"];
   dietPref = ["Vegan","Vegetarian","Non-Vegetarian"];
   diet = {
+    _id:"",
     foodPreference:this.dietPref[0],
     ingredients:"",
     nutritionInfo:"",
@@ -80,6 +79,9 @@ export class MealsComponent implements OnInit {
     let avoidableMedCondArr = diet.avoidableMedCond.split(",");
     
     let meal = new Meal();
+    if(diet._id){
+      meal._id = diet._id
+    }
     meal.avoidableMedCond = avoidableMedCondArr;
     meal.calories = diet.calories;
     meal.course = courseArr;
@@ -125,6 +127,7 @@ export class MealsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if(result){
       let dietRef = this.diet;
       this.mealCourseType.setValue(result.course);
       this.diet.foodPreference = this.dietPref[0];
@@ -146,6 +149,8 @@ export class MealsComponent implements OnInit {
       dietRef.photoURL = url[url.length-1];
       dietRef.calories = result.calories;
       dietRef.name = result.name;
+      dietRef._id = result._id;
+    }
     });
   }
 
@@ -157,68 +162,9 @@ export class MealsComponent implements OnInit {
   htmlTextSubmit(selected){
     setTimeout(()=>{
       this.diet[selected] = document.getElementsByTagName("input")["htmlInp"].value;
-      debugger;
       document.getElementById(selected+"Txt").innerHTML = this.diet[selected];
     },50);
   }
-    
-  fileChanged(e) {
-    this.files = e.target.files[0];
-    let fileReader = new FileReader();
-    fileReader.readAsArrayBuffer(this.files);
-    fileReader.onload = (evt:any) => {
-      let data = new Uint8Array(evt.target.result);
-      let workbook = XLSX.read(data, {
-        type: "array",
-        cellDates: true,
-        cellNF: false,
-        cellText: false
-      });
-      let jsonData = XLSX.utils.sheet_to_json(workbook.Sheets.Sheet1);
-      let mealArray = [];
-      $.each(jsonData, (i, v) => {
-        let jsonObj = {
-          name: v.name,
-          cuisine: v.cuisine,
-          calories: v.calories,
-          servingSize: v.servingSize,
-          nutritionInfo: v.nutritionInfo,
-          ingredients: v.ingredients,
-          directions: v.directions,
-          photoURL: v.photoURL
-        };
-        if (v["foodPreference"]) {
-          jsonObj["foodPreference"] = v["foodPreference"].split(',');
-        }
-        if (v["dietType"]) {
-          jsonObj["dietType"] = v["dietType"].split(',');
-        }
-        if (v["idealMedCond"]) {
-          jsonObj["idealMedCond"] = v["idealMedCond"].split(',');
-        }
-        if (v["avoidableMedCond"]) {
-          jsonObj["avoidableMedCond"] = v["avoidableMedCond"].split(',');
-        }
-        if (v["course"]) {
-          jsonObj["course"] = v["course"].split(',');
-        }
-        mealArray.push(jsonObj);
-      });
- /*      this.dataPostSvc.uploadMealData(mealArray)
-        .subscribe((data:any)=>{
-          console.log(data);
-          this.matSnackBar.open("Data Uploaded Successfully","OK");
-        },
-        err=>{
-          console.error(err);
-          this.matSnackBar.open(err,"OK");
-        }); */
-    }
-
-    fileReader.onerror = (err) => {
-      console.log("Error : " + err);
-    }
-    }
 
 }
 

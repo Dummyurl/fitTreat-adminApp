@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import {MatSnackBarModule, MatIconModule} from '@angular/material';
+import {MatSnackBarModule, MatIconModule, MatGridListModule, MatRadioModule, MatSelectModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +37,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgxPopper,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

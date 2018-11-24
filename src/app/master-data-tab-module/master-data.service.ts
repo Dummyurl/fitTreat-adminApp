@@ -125,7 +125,7 @@ export class MasterDataService {
   }
 
   updateMeal(meal:Meal){
-    return this.http.put(this.baseUrl+'/admin/updateMeal/'+ meal.id,meal)
+    return this.http.put(this.baseUrl+'/admin/updateMeal/'+ meal._id,meal)
       .pipe(
         catchError(this.handleError)
       );

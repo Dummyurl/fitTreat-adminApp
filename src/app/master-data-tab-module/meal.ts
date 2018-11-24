@@ -4,7 +4,7 @@ export class Meal {
     idealMedCond: string[];
     avoidableMedCond: string[];
     course: string[];
-    id: string;
+    _id: string;
     name: string;
     cuisine: string;
     calories: number;

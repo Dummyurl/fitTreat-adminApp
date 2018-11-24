@@ -3,6 +3,8 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {AppConstants} from './app-constants';
 import { throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import { Medicine } from './master-data-tab-module/medicine';
+import { Symptom } from './master-data-tab-module/symptom';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +33,7 @@ export class CommonsvcService {
   }
 
   uploadMealData(meals:any[]){
-    return this.http.post(this.baseUrl+'/admin/addMeal',meals)
+    return this.http.post(this.baseUrl+'/admin/addMeals',meals)
       .pipe(
         catchError(this.handleError)
       );
@@ -39,6 +41,38 @@ export class CommonsvcService {
 
   updateAppData(obj:any,id:string){
     return this.http.put(this.baseUrl+'/admin/editAppData/'+id,obj)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  databaseStat(){
+    return this.http.get(this.baseUrl + '/admin/dbStats')
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  downloadTemplate(type:string){
+    window.open(this.baseUrl+"/admin/templateDownload/"+type,"_self");
+  }
+
+  dropCollections(name:string){
+    return this.http.delete(this.baseUrl+'/admin/deleteCollection/'+name)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  uploadMedicines(meds: Medicine[]){
+    return this.http.post(this.baseUrl+'/admin/addMedicines',meds)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  uploadSymptoms(symptoms:Symptom[]){
+    return this.http.post(this.baseUrl+'/admin/addSymptoms',symptoms)
       .pipe(
         catchError(this.handleError)
       );
