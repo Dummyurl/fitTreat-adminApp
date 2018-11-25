@@ -14,7 +14,12 @@ import { Medicine } from '../master-data-tab-module/medicine';
 })
 export class HomeComponent implements OnInit {
 
-  dbStat = {};
+  dbStat:any = {
+    users:0,
+    meals:0,
+    medicines:0,
+    symptoms:0
+  };
   bulkOptions = [
     {name:"Meals",type:"Excel"},
     {name:"Medicines",type:"JSON"},
