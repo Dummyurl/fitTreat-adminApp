@@ -16,6 +16,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "~0.8.0",
     "@angular/animations": "^7.0.1",
     "@angular/cdk": "^7.0.2",
     "@angular/cli": "~6.2.4",
@@ -37,12 +38,12 @@
     "ngx-bootstrap": "^3.1.1",
     "path": "^0.12.7",
     "popper.js": "^1.14.4",
+    "postinstall": "^0.4.2",
     "rxjs": "~6.2.0",
     "rxjs-compat": "^6.3.3",
     "typescript": "~2.9.2",
     "xlsx": "^0.14.0",
-    "zone.js": "~0.8.26",
-    "@angular-devkit/build-angular": "~0.8.0"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",
