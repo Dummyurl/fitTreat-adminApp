@@ -220,7 +220,8 @@ export class MealsListDialog {
   constructor(
     public dialogRef: MatDialogRef<MealsListDialog>,
     public masterDataSvc: MasterDataService,
-    public cnfDialog: MatDialog
+    public cnfDialog: MatDialog,
+    private matSnackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -249,8 +250,17 @@ export class MealsListDialog {
       });
 
       cnfDialogRef.afterClosed().subscribe(result => {
-        if (result === 'true') {
-          this.masterDataSvc.deleteMeal(element.id);
+        if (result) {
+          this.masterDataSvc.deleteMeal(element._id).subscribe(
+            data => {
+              this.matSnackBar.open(data['status'], 'OK');
+              this.dialogRef.close();
+            },
+            err => {
+              console.log(err);
+              this.matSnackBar.open('Some Error Occurred :' + err, 'OK');
+            }
+          );
         }
       });
     }
