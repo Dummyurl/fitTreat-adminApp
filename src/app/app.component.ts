@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 
 export class AppComponent {
   title = 'FitTreat - Admin Console';
-  busy = true;
+  busy = false;
 }
