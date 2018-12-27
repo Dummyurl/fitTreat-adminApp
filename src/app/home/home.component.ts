@@ -125,32 +125,44 @@ export class HomeComponent implements OnInit {
         });
         const jsonData = XLSX.utils.sheet_to_json(workbook.Sheets.Sheet1);
         $.each(jsonData, (i, v) => {
-          const jsonObj = {
-            name: v.name,
-            cuisine: v.cuisine,
-            calories: v.calories,
-            servingSize: v.servingSize,
-            nutritionInfo: v.nutritionInfo,
-            ingredients: v.ingredients,
-            directions: v.directions,
-            photoURL: v.photoURL
-          };
-          if (v['foodPreference']) {
-            jsonObj['foodPreference'] = v['foodPreference'].split(',');
+          if (v.name) {
+            const jsonObj = {
+              name: v.name,
+              cuisine: v.cuisine || '',
+              calories: v.calories || 0,
+              servingSize: v.servingSize || 0,
+              nutritionInfo: v.nutritionInfo  || '',
+              ingredients: v.ingredients  || '',
+              directions: v.directions  || '',
+              photoURL: v.photoURL || ''
+            };
+            if (v['foodPreference']) {
+              jsonObj['foodPreference'] = v['foodPreference'].split(',');
+            } else {
+              jsonObj['foodPreference'] = ['Vegetarian'];
+            }
+            if (v['dietType']) {
+              jsonObj['dietType'] = v['dietType'].split(',');
+            } else {
+              jsonObj['dietType'] = ['No Data Available'];
+            }
+            if (v['idealMedCond']) {
+              jsonObj['idealMedCond'] = v['idealMedCond'].split(',');
+            } else {
+              jsonObj['idealMedCond'] = [];
+            }
+            if (v['avoidableMedCond']) {
+              jsonObj['avoidableMedCond'] = v['avoidableMedCond'].split(',');
+            } else {
+              jsonObj['avoidableMedCond'] = [];
+            }
+            if (v['course']) {
+              jsonObj['course'] = v['course'].split(',');
+            } else {
+              jsonObj['course'] = 'Snack';
+            }
+            dataArray.push(jsonObj);
           }
-          if (v['dietType']) {
-            jsonObj['dietType'] = v['dietType'].split(',');
-          }
-          if (v['idealMedCond']) {
-            jsonObj['idealMedCond'] = v['idealMedCond'].split(',');
-          }
-          if (v['avoidableMedCond']) {
-            jsonObj['avoidableMedCond'] = v['avoidableMedCond'].split(',');
-          }
-          if (v['course']) {
-            jsonObj['course'] = v['course'].split(',');
-          }
-          dataArray.push(jsonObj);
         });
       } else if (fileType === 'json') {
         try {
