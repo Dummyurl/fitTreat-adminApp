@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import {MatSnackBarModule, MatIconModule, MatGridListModule, MatRadioModule, MatSelectModule} from '@angular/material';
+import {MatSnackBarModule, MatIconModule, MatGridListModule, MatRadioModule,
+  MatSelectModule, MatProgressSpinnerModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,7 +41,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatGridListModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

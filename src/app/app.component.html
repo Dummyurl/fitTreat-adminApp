@@ -21,6 +21,9 @@
   </div>
 <!--   <a class="btn btn-outline-dark headerText" href="javascript:">Sign up</a> -->
 </nav>
+<div *ngIf="busy" class="grayoverlay">
+  <mat-spinner color="accent" class="spinnerCls"></mat-spinner>
+</div>
 <router-outlet></router-outlet>
 
 

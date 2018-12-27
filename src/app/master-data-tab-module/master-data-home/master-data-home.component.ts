@@ -6,16 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./master-data-home.component.css']
 })
 export class MasterDataComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-  medPress(){
-    alert("Medicine Button Pressed");
+  ngOnInit() {}
+  medPress() {
+    alert('Medicine Button Pressed');
   }
 
-  sympPress(){
-    alert("Symptoms Pressed");
+  sympPress() {
+    alert('Symptoms Pressed');
   }
 }
