@@ -134,13 +134,9 @@ export class HomeComponent implements OnInit {
               nutritionInfo: v.nutritionInfo  || '',
               ingredients: v.ingredients  || '',
               directions: v.directions  || '',
-              photoURL: v.photoURL || ''
+              photoURL: v.photoURL || '',
+              foodPreference: v.foodPreference
             };
-            if (v['foodPreference']) {
-              jsonObj['foodPreference'] = v['foodPreference'].split(',');
-            } else {
-              jsonObj['foodPreference'] = ['Vegetarian'];
-            }
             if (v['dietType']) {
               jsonObj['dietType'] = v['dietType'].split(',');
             } else {
