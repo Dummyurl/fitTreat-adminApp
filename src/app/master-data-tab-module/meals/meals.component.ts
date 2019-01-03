@@ -174,6 +174,7 @@ export class MealsComponent implements OnInit {
 }
 
 @Component({
+  // tslint:disable-next-line:component-selector
   selector: 'meals-list-dialog',
   templateUrl: './meals_list.dialog.html',
   styles: [
@@ -211,6 +212,7 @@ export class MealsComponent implements OnInit {
     `
   ]
 })
+// tslint:disable-next-line:component-class-suffix
 export class MealsListDialog {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -224,6 +226,7 @@ export class MealsListDialog {
     private matSnackBar: MatSnackBar
   ) {}
 
+  // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
     this.getMealsData(0, 10);
     this.data.paginator = this.paginator;
@@ -272,6 +275,7 @@ export class MealsListDialog {
   templateUrl: '../../../common/cnf_dialog_component.html',
   styles: [``]
 })
+// tslint:disable-next-line:component-class-suffix
 export class ConfirmationDialog {
   constructor(public cnfDialogRef: MatDialogRef<ConfirmationDialog>) {}
 }
