@@ -1,4 +1,4 @@
 export const Appconstants = {
-    // baseUrl: 'localhost:8888'
-    baseUrl : 'https://testapp-ft.herokuapp.com'
+     // baseUrl: 'http://localhost:8888'
+    baseUrl : 'https://fitpythonserver.herokuapp.com'
 };
