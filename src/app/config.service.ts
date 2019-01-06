@@ -8,6 +8,8 @@ import {catchError} from 'rxjs/operators';
 })
 export class ConfigService {
 
+  baseUrl: string;
+
   constructor(private http: HttpClient) { }
 
   private handleError(error: HttpErrorResponse) {
@@ -21,7 +23,7 @@ export class ConfigService {
     return throwError('Something bad happened; please try again later');
   }
 
-  public getConfig(): any {
+  getConfig(): any {
     return this.http.get('/config')
       .pipe(
         catchError(this.handleError)

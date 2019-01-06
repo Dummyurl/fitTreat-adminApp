@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {ConfigService} from './config.service';
-import {AppConstants} from './app-constants';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +6,7 @@ import {AppConstants} from './app-constants';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'FitTreat - Admin Console';
   busy = false;
-
-  constructor(public configSvc: ConfigService) {}
-
-  ngOnInit() {
-    this.configSvc.getConfig().subscribe(result => {
-      AppConstants.baseUrl = result.url;
-    });
-  }
 }

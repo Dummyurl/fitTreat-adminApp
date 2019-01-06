@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {AppConstants} from './app-constants';
 import { throwError } from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import { Medicine } from './master-data-tab-module/medicine';
 import { Symptom } from './master-data-tab-module/symptom';
+import { Appconstants } from './appconstants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonsvcService {
-
-  baseUrl: string = AppConstants.baseUrl;
-  constructor(private http: HttpClient) { }
-
+  baseUrl = Appconstants.baseUrl;
+  constructor(private http: HttpClient) {
+  }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
         console.error('An error occurred: ', error.error.message);

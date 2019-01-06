@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { AppConstants } from '../app-constants';
 import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Meal } from './meal';
 import { Medicine } from './medicine';
 import { Symptom } from './symptom';
+import { Appconstants } from '../appconstants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MasterDataService {
-  baseUrl: string = AppConstants.baseUrl;
-  constructor(private http: HttpClient) {}
+
+  baseUrl = Appconstants.baseUrl;
+  constructor(private http: HttpClient) {
+  }
   /* Error Handler */
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

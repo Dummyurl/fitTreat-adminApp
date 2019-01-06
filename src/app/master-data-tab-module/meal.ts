@@ -1,6 +1,6 @@
 export class Meal {
     foodPreference: string;
-    dietType :string[];
+    dietType: string[];
     idealMedCond: string[];
     avoidableMedCond: string[];
     course: string[];
@@ -8,9 +8,9 @@ export class Meal {
     name: string;
     cuisine: string;
     calories: number;
-    servingSize: number
-    nutritionInfo:string;
-    ingredients:string;
-    directions:string;
-    photoURL:string;
+    servingSize: number;
+    nutritionInfo: string;
+    ingredients: string;
+    directions: string;
+    photoURL: string;
 }
