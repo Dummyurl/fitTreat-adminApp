@@ -30,10 +30,14 @@ const allowedExt = [
   '.svg',
 ];
 
-// Send all requests to index.html
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/fitTreat-adminapp/index.html'));
+app.get('/config',(req,res)=>{
+  res.json({url:process.env.BACKEND_URL});
 });
+
+// Send all requests to index.html
+/* app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/fitTreat-adminapp/index.html'));
+}); */
 
 // default Heroku port
 app.listen(process.env.PORT || 5000);
