@@ -42,7 +42,8 @@ export class MealsComponent implements OnInit {
     photoURL: '',
     calories: 0,
     name: '',
-    course: ''
+    course: '',
+    idealMedCond: []
   };
 
   files: any;
@@ -89,6 +90,7 @@ export class MealsComponent implements OnInit {
     meal.name = diet.name;
     meal.nutritionInfo = diet.nutritionInfo;
     meal.photoURL = diet.photoURL;
+    meal.idealMedCond = [];
 
     if (this.editMode) {
       meal.nutritionInfo = document.getElementById(
