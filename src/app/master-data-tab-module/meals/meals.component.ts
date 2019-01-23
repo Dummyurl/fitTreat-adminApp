@@ -122,6 +122,7 @@ export class MealsComponent implements OnInit {
   }
 
   btnEditExstngPress() {
+    const me = this;
     this.editMode = true;
     this.toolBtnAddNew = false;
     this.toolBtnExisting = true;
@@ -132,9 +133,8 @@ export class MealsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        const dietRef = this.diet;
-        this.mealCourseType.setValue(result.course);
-        this.diet.foodPreference = this.dietPref[0];
+        const dietRef = me.diet;
+        me.mealCourseType.setValue(result.course);
         const nutInfo = document.getElementById('nutritionInfoTxt');
         const ingrdInfo = document.getElementById('ingredientsTxt');
         const drctnInfo = document.getElementById('directionsTxt');
